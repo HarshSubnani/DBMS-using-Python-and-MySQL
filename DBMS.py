@@ -10,6 +10,7 @@ def print_pheader():
     print('_'*152)
     print('Patient ID      |','First Name    |',"Last Name     |",'Mobile Number |','Email ID              |','Admission reason       |','Admission date|','Discharge date|','Department    |')
     print('_'*152)
+    
 def view_pData():
     print_pheader()
     cursor.execute("select * from patient_info")
@@ -65,6 +66,7 @@ def add_patient():
             continue
         else:
             pmain()
+            
 def search_patient(p_id):
     while True:
         query = 'select * from patient_info where p_id={}'.format(p_id)
@@ -89,6 +91,7 @@ def modpquery(field, new, p_id):
     mod_query = 'update patient_info set '+field+"='"+new+"' where p_id={}".format(p_id)
     cursor.execute(mod_query)
     mycon.commit()
+    
 def mod_patient(p_id):
     if search_patient(p_id) == True:
         while True:
@@ -152,16 +155,19 @@ def mod_patient(p_id):
                     continue
                 else:
                     break
+                    
 def distinctp1(field):
     distinct = 'select distinct '+field+" from patient_info"
     cursor.execute(distinct)
     data = cursor.fetchall()
     return data
+    
 def distinctp2(field, sort):
     distinctp2 = 'select * from patient_info where '+field+'='+"'"+sort+"'"
     cursor.execute(distinctp2)
     data = cursor.fetchall()
     return data
+    
 def sort_pview():
     while True:
         print("\nChoose how to filter")
@@ -308,6 +314,7 @@ def add_staff():
             continue
         else:
             smain()
+            
 def search_staff(emp_id):
     while True:
         query = 'select * from hos_staff where emp_id={}'.format(emp_id)
@@ -327,10 +334,12 @@ def search_staff(emp_id):
             continue
         else:
             smain()
+            
 def modsquery(field, new, emp_id):
     mod_query = 'update hos_staff set '+field+"='"+new+"' where emp_id={}".format(emp_id)
     cursor.execute(mod_query)
     mycon.commit()
+    
 def mod_staff(emp_id):
     if search_staff(emp_id) == True:
         while True:
@@ -376,16 +385,19 @@ def mod_staff(emp_id):
                     continue
                 else:
                     break
+                    
 def distincts1(field):
     distinct = 'select distinct '+field+" from hos_staff"
     cursor.execute(distinct)
     data = cursor.fetchall()
     return data
+    
 def distincts2(field, sort):
     distincts2 = 'select * from hos_staff where '+field+'='+"'"+sort+"'"
     cursor.execute(distincts2)
     data = cursor.fetchall()
     return data
+    
 def sort_sview():
     while True:
         print("\nChoose how to filter")
@@ -438,6 +450,7 @@ def sort_sview():
                 break
 
 #Appointment database
+
 def print_eheader():
     print('_'*65)    
     print('%11s'%'Appointment ID\t|','%20s'%'Patient Name\t|','%11s'%'Treatment')
@@ -491,6 +504,7 @@ def add_app():
             continue
         else:
             emain()
+            
 def search_app(app_no):
     while True:
         query = 'select * from appoint_sch where app_no={}'.format(app_no)
@@ -510,10 +524,12 @@ def search_app(app_no):
             continue
         else:
             smain()
+            
 def modequery(field, new, app_no):
     mod_query = 'update appoint_sch set '+field+"='"+new+"' where app_no={}".format(app_no)
     cursor.execute(mod_query)
     mycon.commit()
+    
 def mod_app(app_no):
     if search_app(app_no) == True:
         while True:
@@ -541,16 +557,19 @@ def mod_app(app_no):
                     continue
                 else:
                     break
+                    
 def distincte1(field):
     distinct = 'select distinct '+field+" from appoint_sch"
     cursor.execute(distinct)
     data = cursor.fetchall()
     return data
+    
 def distincte2(field, sort):
     distincte2 = 'select * from appoint_sch where '+field+'='+"'"+sort+"'"
     cursor.execute(distincte2)
     data = cursor.fetchall()
     return data
+    
 def sort_eview():
     while True:
         print("\nChoose how to filter")
@@ -623,6 +642,7 @@ def pmain():
                 break
 
 #main (staff)
+
 def smain():
     print()
     print("**"*20,"Hospital Staff Database","**"*20)
