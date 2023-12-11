@@ -648,7 +648,7 @@ def smain():
     print("**"*20,"Hospital Staff Database","**"*20)
     while True:
         print("\n\t1. View all Staff's information")
-        print("root\n\t2. Add new Staffs")
+        print("\n\t2. Add new Staffs")
         print("\n\t3. Search for a Staff")
         print("\n\t4. Delete a Staff")
         print("\n\t5. Modify Staff Details")
